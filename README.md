@@ -14,7 +14,7 @@ Made by **[InverseZero Security](https://github.com/InverseZeroSecurity)**.
 | **Auto-zoom and cursor effects don't work** (with webcam on) | The webcam video is saved before the screen video, and saving it takes all of the session's cursor data. The screen recording ends up with none. The fix keeps the cursor data for the screen recording. |
 | **Menus on the recording bar are cut off** (the ⋯ menu only shows languages, so "Recordings Path" is missing) | On Linux the recording bar is a small window that is never enlarged while a menu is open. The fix lets it grow while a menu is open, as it does on other platforms. |
 
-Related upstream reports: X11 capture, [#1001](https://github.com/webadderallorg/Recordly/issues/1001) and [#364](https://github.com/webadderallorg/Recordly/issues/364); clipped menus, [#944](https://github.com/webadderallorg/Recordly/issues/944). Several community PRs are already open for those two. The cursor-data bug is reported separately; see [upstream status](#upstream-status).
+Related upstream reports: X11 capture, [#1001](https://github.com/webadderallorg/Recordly/issues/1001) and [#364](https://github.com/webadderallorg/Recordly/issues/364); clipped menus, [#944](https://github.com/webadderallorg/Recordly/issues/944). Several community PRs are already open for those two. The cursor-data bug is reported in [#1038](https://github.com/webadderallorg/Recordly/issues/1038), with a fix submitted in [#1039](https://github.com/webadderallorg/Recordly/pull/1039).
 
 ## Install
 
@@ -57,9 +57,9 @@ Your recordings and settings in `~/.config/Recordly` are kept, and they are shar
 ## Upstream status
 
 Once these fixes are released in Recordly, please use the official app instead:
-- Cursor data with webcam: *(link to your issue/PR here)*
-- X11 screen capture: #1001, #364 (fix PRs pending)
-- Clipped HUD menus: #944 (fix PRs pending)
+- Cursor data with webcam: reported in [#1038](https://github.com/webadderallorg/Recordly/issues/1038), fix submitted in [#1039](https://github.com/webadderallorg/Recordly/pull/1039)
+- X11 screen capture: [#1001](https://github.com/webadderallorg/Recordly/issues/1001), [#364](https://github.com/webadderallorg/Recordly/issues/364) (community fix PRs pending)
+- Clipped HUD menus: [#944](https://github.com/webadderallorg/Recordly/issues/944) (community fix PRs pending)
 
 ## License
 
