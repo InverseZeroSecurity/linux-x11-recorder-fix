@@ -24,9 +24,9 @@ Usage: ./install.sh [--appimage PATH] [--swiftshader]
 
   --appimage PATH   Use an already-downloaded Recordly-linux-x64.AppImage (v${RECORDLY_VERSION})
                     instead of downloading it from the official GitHub release.
-  --swiftshader     Launch with software GPU rendering (--use-angle=swiftshader).
-                    Only needed if recording fails with "could not find video source"
-                    and the log shows "Exiting GPU process due to errors during initialization".
+  --swiftshader     Fallback: launch with software GPU rendering (--use-angle=swiftshader).
+                    Only needed if the GPU still fails after these fixes, i.e. running the
+                    launcher from a terminal prints "Exiting GPU process due to errors during initialization".
 EOF
 }
 
@@ -100,6 +100,11 @@ patches = [
         "HUD menus: let the recording bar grow while a menu is open on Linux",
         b'process.platform!=="linux"&&wC(!e)',
         b'process.platform!=="never"&&wC(!e)',
+    ),
+    (
+        "GPU: stop forcing --use-gl=egl on X11 (this Electron build only allows ANGLE, so the GPU process exited)",
+        b'{useGl:hE(t)?"egl":void 0,',
+        b'{useGl:!1   ?"egl":void 0,',
     ),
 ]
 
